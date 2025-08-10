@@ -25,7 +25,9 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-logging")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage") // optional, avoids JUnit 4
     }
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
 }

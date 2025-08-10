@@ -14,8 +14,7 @@ class DbController(private val service: DbService) {
 
     @PostMapping
     fun create(@RequestBody request: CreateExampleRequest): TempDto {
-        val saved = service.save(request.device, request.value)
-        return TempDto(device = saved.device, value = saved.value)
+        return service.save(request.device, request.value)
     }
 }
 
