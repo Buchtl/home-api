@@ -1,4 +1,4 @@
-package de.inf_schauer
+package de.inf_schauer.home_api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
