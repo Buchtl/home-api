@@ -22,7 +22,6 @@ class DbControllerTest(@Autowired private val mockMvc: MockMvc) {
         val device = "room_1"
         val value = 36.2f
 
-        TempDto(device = device, value = value)
         val response = TempDto(device = device, value = value)
 
         whenever(methodCall = service.save(device = device, value = value)).thenReturn(response)
@@ -32,6 +31,10 @@ class DbControllerTest(@Autowired private val mockMvc: MockMvc) {
             content = """{"device":"$device","value":$value}"""
         }.andExpect {
             status { isOk() }
+        }.andExpect {
+            content {
+                json("""{"device":"$device","value":$value}""")
+            }
         }
 
         verify(service).save(device = device, value = value)
