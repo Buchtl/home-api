@@ -13,7 +13,7 @@ class HealthControllerTest(
 ) {
 
     @Test
-    fun shouldReturnHealthy() {
+    fun `should return healthy`() {
         mockMvc.get("/health") // send GET request
             .andExpect {
                 status { isOk() } // HTTP 200
