@@ -1,5 +1,12 @@
+# Gradle
+.gradle/
 build/
-dist/
-logs/
-venv/
-__pycache__/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
