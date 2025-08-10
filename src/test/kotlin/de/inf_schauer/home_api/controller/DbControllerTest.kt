@@ -22,18 +22,19 @@ class DbControllerTest(@Autowired private val mockMvc: MockMvc) {
     fun `should call service to save`() {
         val device = "room_1"
         val value = 36.2f
+
         TempDto(device = device, value = value)
         val response = TempDto(device = device, value = value)
 
-        whenever(service.save(device = any(), value = any())).thenReturn(response)
+        whenever(service.save(device = device, value = value)).thenReturn(response)
 
         mockMvc.post("/temp") {
             contentType = MediaType.APPLICATION_JSON
-            content = """{"device":"sensor1","value":42.0}"""
+            content = """{"device":"$device","value":$value}"""
         }.andExpect {
             status { isOk() }
         }
 
-        verify(service).save(device = any(), value = any())
+        verify(service).save(device = device, value = value)
     }
 }
