@@ -1,3 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: myuser
+    password: mypass
+  jpa:
+    hibernate:
+      ddl-auto: update   # or 'validate' in production
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
 logging:
   level:
     de.inf_schauer.home_api: DEBUG
