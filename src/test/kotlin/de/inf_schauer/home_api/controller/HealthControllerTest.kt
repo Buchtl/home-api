@@ -13,8 +13,8 @@ class HealthControllerTest(
 ) {
 
     @Test
-    fun `should return healthy`() {
-        mockMvc.get("/health/") // send GET request
+    fun shouldReturnHealthy() {
+        mockMvc.get("/health") // send GET request
             .andExpect {
                 status { isOk() } // HTTP 200
                 content { string(equalTo("healthy")) } // exact body match

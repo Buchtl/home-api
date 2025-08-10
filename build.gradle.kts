@@ -14,6 +14,10 @@ java {
     }
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 repositories {
     mavenCentral()
 }
