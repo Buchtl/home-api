@@ -3,7 +3,6 @@ package de.inf_schauer.home_api.controller
 import de.inf_schauer.home_api.dto.TempDto
 import de.inf_schauer.home_api.service.DbService
 import org.junit.jupiter.api.Test
-import org.mockito.kotlin.any
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,9 +25,9 @@ class DbControllerTest(@Autowired private val mockMvc: MockMvc) {
         TempDto(device = device, value = value)
         val response = TempDto(device = device, value = value)
 
-        whenever(service.save(device = device, value = value)).thenReturn(response)
+        whenever(methodCall = service.save(device = device, value = value)).thenReturn(response)
 
-        mockMvc.post("/temp") {
+        mockMvc.post(urlTemplate = "/temp") {
             contentType = MediaType.APPLICATION_JSON
             content = """{"device":"$device","value":$value}"""
         }.andExpect {
