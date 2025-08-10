@@ -11,9 +11,3 @@ class DemoApplication
 fun main(args: Array<String>) {
     runApplication<DemoApplication>(*args)
 }
-
-@RestController
-class HealthController {
-    @GetMapping("/health")
-    fun health(): String = "healthy"
-}
