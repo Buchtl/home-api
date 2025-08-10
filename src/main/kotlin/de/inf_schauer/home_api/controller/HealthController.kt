@@ -12,7 +12,7 @@ class HealthController {
 
     @GetMapping
     fun health(): String {
-        logger.info("healthy")
+        logger.debug("healthy")
         return "healthy"
     }
 }
