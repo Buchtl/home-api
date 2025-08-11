@@ -8,8 +8,4 @@ data class TempResponse(
             device = entity.device, value = entity.value
         )
     }
-
-    fun toEntity() = TempEntity(
-        device = device, value = value
-    )
 }
