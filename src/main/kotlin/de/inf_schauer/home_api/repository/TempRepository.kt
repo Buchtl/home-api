@@ -1,6 +1,6 @@
 package de.inf_schauer.home_api.repository
 
-import TempEntity
+import de.inf_schauer.home_api.temp.TempEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 

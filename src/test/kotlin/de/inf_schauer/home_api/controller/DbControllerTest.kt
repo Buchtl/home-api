@@ -1,6 +1,6 @@
 package de.inf_schauer.home_api.controller
 
-import de.inf_schauer.home_api.dto.TempDto
+import de.inf_schauer.home_api.temp.TempResponse
 import de.inf_schauer.home_api.service.DbService
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.verify
@@ -22,7 +22,7 @@ class DbControllerTest(@Autowired private val mockMvc: MockMvc) {
         val device = "room_1"
         val value = 36.2f
 
-        val response = TempDto(device = device, value = value)
+        val response = TempResponse(device = device, value = value)
 
         whenever(methodCall = service.save(device = device, value = value)).thenReturn(response)
 

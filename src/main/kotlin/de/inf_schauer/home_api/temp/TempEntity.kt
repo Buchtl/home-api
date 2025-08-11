@@ -1,4 +1,5 @@
-import de.inf_schauer.home_api.dto.TempDto
+package de.inf_schauer.home_api.temp
+
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
@@ -13,12 +14,4 @@ data class TempEntity(
     @Column(nullable = false) val device: String,
 
     @Column(nullable = false) val value: Float
-) {
-    companion object {
-        fun fromDto(dto: TempDto) = TempEntity(
-            device = dto.device, value = dto.value
-        )
-    }
-
-    fun toDto() = TempDto(device = device, value = value)
-}
+)

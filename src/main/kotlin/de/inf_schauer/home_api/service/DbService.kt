@@ -1,7 +1,8 @@
 package de.inf_schauer.home_api.service
-import TempEntity
-import de.inf_schauer.home_api.dto.TempDto
+
 import de.inf_schauer.home_api.repository.TempRepository
+import de.inf_schauer.home_api.temp.TempEntity
+import de.inf_schauer.home_api.temp.TempResponse
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -9,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional
 class DbService(private val repo: TempRepository) {
 
     @Transactional
-    fun save(device: String, value: Float): TempDto {
+    fun save(device: String, value: Float): TempResponse {
         val entity = TempEntity(device = device, value = value)
         val saved = repo.save(entity)
-        return saved.toDto()
+        return TempResponse.fromEntity(saved)
     }
 }
