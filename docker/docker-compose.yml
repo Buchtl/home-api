@@ -14,7 +14,7 @@ services:
       - DB_USER=${DB_USER:-home}
       - DB_PASS=${DB_PASSWORD:-home}
     ports:
-      - "8080:8080"
+      - "8090:8080"
     deploy:
       replicas: 1
       restart_policy:
