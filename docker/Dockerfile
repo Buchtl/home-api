@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM gradle:8.14.3-jdk-21-and-24-corretto-al2023 AS build
+FROM gradle:8.14.3-jdk21 AS build
 
 WORKDIR /app
 
