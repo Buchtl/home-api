@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController
 class TempController(private val service: DbService) {
     @PostMapping
     fun create(@RequestBody tempDtoCreate: TempDtoCreate): TempResponse {
-        return service.save(device = tempDtoCreate.device, value = tempDtoCreate.value)
+        return service.save(
+            device = tempDtoCreate.device,
+            value = tempDtoCreate.value,
+            timestamp = tempDtoCreate.timestamp
+        )
     }
 }

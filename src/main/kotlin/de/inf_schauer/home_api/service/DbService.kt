@@ -5,13 +5,14 @@ import de.inf_schauer.home_api.temp.TempEntity
 import de.inf_schauer.home_api.temp.TempResponse
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.Instant
 
 @Service
 class DbService(private val repo: TempRepository) {
 
     @Transactional
-    fun save(device: String, value: Float): TempResponse {
-        val entity = TempEntity(device = device, value = value)
+    fun save(device: String, value: Float, timestamp: Instant): TempResponse {
+        val entity = TempEntity(device = device, value = value, timestamp = timestamp)
         val saved = repo.save(entity)
         return TempResponse.fromEntity(saved)
     }
