@@ -41,7 +41,6 @@ class TempControllerTest(@Autowired private val mockMvc: MockMvc) {
             }
         }
 
-        //verify(service).save(device = device, value = value, timestamp = any())
         verify(service).save(eq(device), eq(value), any())
 
     }
