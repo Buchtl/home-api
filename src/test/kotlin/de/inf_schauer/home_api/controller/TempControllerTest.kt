@@ -1,7 +1,7 @@
 package de.inf_schauer.home_api.controller
 
-import de.inf_schauer.home_api.temp.TempResponse
 import de.inf_schauer.home_api.service.DbService
+import de.inf_schauer.home_api.temp.TempResponse
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
@@ -12,8 +12,8 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
 
-@WebMvcTest(DbController::class)
-class DbControllerTest(@Autowired private val mockMvc: MockMvc) {
+@WebMvcTest(TempController::class)
+class TempControllerTest(@Autowired private val mockMvc: MockMvc) {
     @MockBean
     lateinit var service: DbService
 
