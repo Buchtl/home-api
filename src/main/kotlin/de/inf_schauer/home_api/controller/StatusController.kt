@@ -5,5 +5,4 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/status")
-class StatusController {
-}
+class StatusController
