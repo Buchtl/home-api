@@ -7,7 +7,7 @@ import jakarta.persistence.Table
 import java.util.*
 
 @Entity
-@Table(name = "temp")
+@Table(name = "temperature")
 data class TempEntity(
     @Id @Column(columnDefinition = "uuid DEFAULT gen_random_uuid()") val uuid: UUID? = null,
 
