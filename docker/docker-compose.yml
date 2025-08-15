@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  home-api:
+    image: obazda/home-api:${BASE_VERSION:-0.1}-${BASE_ARCH:-AMD64}
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_URL=${DB_URL:-localhost}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_NAME=${DB_NAME:-home}
+      - DB_USER=${DB_USER:-home}
+      - DB_PASS=${DB_PASSWORD:-home}
+    ports:
+      - "8080:8080"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.labels.apps == true
