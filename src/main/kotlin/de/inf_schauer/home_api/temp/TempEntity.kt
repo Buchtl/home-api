@@ -13,5 +13,5 @@ data class TempEntity(
 
     @Column(nullable = false) val value: Float,
 
-    @Column(nullable = false) val timestamp: Instant
+    @Column(nullable = false) val time: Instant
 )

@@ -7,7 +7,7 @@ data class TempResponse(
 ) {
     companion object {
         fun fromEntity(entity: TempEntity) = TempResponse(
-            device = entity.device, value = entity.value, timestamp = entity.timestamp
+            device = entity.device, value = entity.value, timestamp = entity.time
         )
     }
 }
