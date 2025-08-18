@@ -3,10 +3,38 @@ plugins {
     id("org.springframework.boot") version "3.2.5"
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("plugin.spring") version "1.9.23"
+    id("maven-publish")
 }
 
 group = "de.inf_schauer"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.2-SNAPSHOT"
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            groupId = project.group.toString()
+            artifactId = "home-api"  // change to your artifact name
+            version = project.version.toString()
+        }
+    }
+
+    repositories {
+        maven {
+            name = "nexus"
+            url = uri(
+                if (version.toString().endsWith("SNAPSHOT")) "http://pi4b:8081/repository/internal-snapshot"
+                else "http://pi4b:8081/repository/internal"
+            )
+            isAllowInsecureProtocol = true
+            credentials {
+                username = findProperty("nexus.user") as String? ?: ""
+                password = findProperty("nexus.password") as String? ?: ""
+            }
+        }
+    }
+}
+
 
 java {
     toolchain {
