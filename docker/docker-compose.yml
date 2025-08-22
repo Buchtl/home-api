@@ -21,4 +21,4 @@ services:
         condition: on-failure
       placement:
         constraints:
-          - node.labels.apps == true
+          - node.labels.home-api == true
