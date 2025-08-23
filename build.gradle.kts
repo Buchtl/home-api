@@ -23,8 +23,8 @@ publishing {
         maven {
             name = "nexus"
             url = uri(
-                if (version.toString().endsWith("SNAPSHOT")) "https://pi4b:8443/repository/internal-snapshot"
-                else "https://pi4b:8443/repository/internal"
+                if (version.toString().endsWith("SNAPSHOT")) "https://pi4b:8443/repository/internal-snapshot/"
+                else "https://pi4b:8443/repository/internal/"
             )
             isAllowInsecureProtocol = true
             credentials {
