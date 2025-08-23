@@ -23,14 +23,25 @@ publishing {
         maven {
             name = "nexus"
             url = uri(
-                if (version.toString().endsWith("SNAPSHOT")) "http://pi4b:8081/repository/internal-snapshot"
-                else "http://pi4b:8081/repository/internal"
+                if (version.toString().endsWith("SNAPSHOT")) "https://pi4b:8443/repository/internal-snapshot"
+                else "https://pi4b:8443/repository/internal"
             )
             isAllowInsecureProtocol = true
             credentials {
                 username = findProperty("nexus.user") as String? ?: ""
                 password = findProperty("nexus.password") as String? ?: ""
             }
+        }
+    }
+}
+
+repositories {
+    maven {
+        url = uri("https://pi4b:8443/repository/maven-all/")
+        isAllowInsecureProtocol = true
+        credentials {
+            username = findProperty("nexus.user") as String
+            password = findProperty("nexus.password") as String
         }
     }
 }
@@ -44,10 +55,6 @@ java {
 
 tasks.test {
     useJUnitPlatform()
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
