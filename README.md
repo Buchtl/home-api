@@ -4,8 +4,8 @@
 # Config gradle properties
 gradle.properties in ~/.gradle/gradle.properties
 ```
-gpr.user=<GIT_USER>
-gpr.key=<GIT_TOKEN>
+gpr.user=<GITHUB_USER>
+gpr.key=<GITHUB_TOKEN>
 
 systemProp.javax.net.ssl.trustStore=/home/<USER>/nexus-truststore.jks
 systemProp.javax.net.ssl.trustStorePassword=<PASSWORD>
